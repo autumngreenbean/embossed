@@ -1,0 +1,181 @@
+<!-- references
+visual > https://www.pcjs.org/software/pcx86/sys/windows/win95/4.00.950/
+
+animations > https://infinitemac.org/1990/System%206.0.5
+-->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.cdnfonts.com/css/w95fa');
+
+@font-face {
+  font-family: '95';
+  src: url('https://raw.githubusercontent.com/grassmunk/Chicago95/master/Fonts/vga_font/LessPerfectDOSVGA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+
+.jersey-20-regular {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  background-color:rgba(228,228,228,1);
+}
+
+.window-box {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+
+  user-select: none;
+  background-color:rgba(228,228,228,1);
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  text-shadow: 1px 1px 3px white;
+
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  transition: all 0.2s ease-in-out;
+  margin: 25px;
+}
+
+.body-container {
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  height: 91%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes content to the bottom */
+}
+
+.header-container {
+  width: 100%;
+  height: 25px;
+  background-color: transparent;
+  position: relative;
+  padding-bottom: 2px;
+}
+#header {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 14px;
+  padding: 2px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+#header .window-title {
+  align-items: center;
+  display: inline-flex;
+  background-color: #000080;
+  flex: 1; 
+  text-align: left; 
+}
+
+#header .window-box {
+  width: 15px; 
+  height: 15px; 
+  display: flex;
+  margin: 2px;
+  /* color: white; */
+  text-shadow: 1px 1px 2px white;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(245, 245, 245, 1), 2px 3px 5px 1px rgba(148, 148, 148, 1), -3px -3px 5px 1px rgba(228, 228, 228, 1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(245, 245, 245, 1), 2px 3px 5px 1px rgba(148, 148, 148, 1), -3px -3px 5px 1px rgba(228, 228, 228, 1);
+  box-shadow: 0px 0px 3px 1px rgba(245, 245, 245, 1), 2px 3px 5px 1px rgba(148, 148, 148, 1), -3px -3px 5px 1px rgba(228, 228, 228, 1);
+}
+
+#header .window-box:hover {
+        text-shadow: 1px 1px 3px white;
+        background-color: rgb(228, 228, 228);
+        align-items: center;
+        justify-content: center;
+        color: transparent;
+        text-shadow: 
+        2px 20px 4px rgba(185, 185, 185, 0.7), 
+        -2px -2px 4px rgb(174, 174, 174); 
+        cursor: pointer;
+        display: flex;
+
+        /* border-radius: 15px; */
+        transition: all 0.2s ease-in-out;
+        line-height:20px;
+}
+
+#header .window-box.clicked {
+  width: 17px; 
+  height: 17px; 
+  display: flex;
+  margin: 2px;
+  /* color: white; */
+  text-shadow: 1px 1px 2px white;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(245, 245, 245, 1), -2px -3px 5px 1px rgba(148, 148, 148, 1), 3px 3px 5px 1px rgba(228, 228, 228, 1);
+-moz-box-shadow: 0px 0px 3px 1px rgba(245, 245, 245, 1), -2px -3px 5px 1px rgba(148, 148, 148, 1), 3px 3px 5px 1px rgba(228, 228, 228, 1);
+box-shadow: inset 0px 0px 3px 1px rgba(245, 245, 245, 1), inset -2px -3px 5px 1px rgba(148, 148, 148, 1), inset 3px 3px 5px 1px rgba(228, 228, 228, 1);
+
+}
+</style>
+</head>
+
+  <div class="window-box" style = "width: 500px; height:300px;">
+    <div class="header-container">
+        <div id="header">
+            <div class="window-title"></div>
+            <div class="window-box">X</div>
+            <div class="window-box">Y</div>
+            <div class="window-box">Z</div>
+
+
+        </div>
+    </div>
+    <div class="body-container">
+
+    </div>
+</div>
+
+<div class="window-box" style = "width:300px; height:100px;">hello world. you may not know me, but i am here to say hello to you. there are too many words to be said but so little space in this digital box. let me first start with how it all began, and how it will begin...</div>
+
+<script>
+  // Select all elements with the class 'window-box' inside the element with the id 'header'
+  const windowBoxes = document.querySelectorAll('#header .window-box');
+
+  // Loop through each element and add an event listener
+  windowBoxes.forEach(function(windowBox) {
+    windowBox.addEventListener('click', function() {
+      // Toggle the 'clicked' class on the clicked element
+      windowBox.classList.toggle('clicked');
+    });
+  });
+</script>

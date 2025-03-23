@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embossed Box</title>
+    <style>
+        body {
+            background-color: rgb(118, 172, 205); /* Background color as provided */
+        }
+
+        .embossedbox {
+            user-select: none;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            text-shadow: 1px 1px 3px white;
+            display: flex;
+            width: 200px;
+            height: 50px;
+            border-radius: 15px;
+            margin: 25px;
+            transition: all 0.2s ease-in-out;
+            top:50%;
+            right:50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="embossedbox">Embossed Box</div>
+
+<script>
+    function adjustEmbossedBox() {
+        // Get the background color of the body
+        const bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+
+        // Extract RGB values from the body's background color (rgb(r, g, b))
+        const rgbColor = bodyBgColor.match(/(\d+), (\d+), (\d+)/); // Extract RGB values
+        const r = parseInt(rgbColor[1]);
+        const g = parseInt(rgbColor[2]);
+        const b = parseInt(rgbColor[3]);
+
+        // Calculate shadows based on the body's background color
+        // Using the original shadow structure, but adjusting RGBA values dynamically
+
+        // 1st Shadow: Light shadow (close to white)
+        const shadow1 = `rgba(${r + 17}, ${g + 17}, ${b + 17}, 1)`; // light shadow (increase each color value for lightness)
+
+        // 2nd Shadow: Medium gray shadow (adjusted relative to body background)
+        const shadow2 = `rgba(${r - 80}, ${g - 80}, ${b - 80}, 1)`; // darker shadow (subtract values for contrast)
+
+        // 3rd Shadow: Same as the body background color (faint shadow effect)
+        const shadow3 = `rgba(${r}, ${g}, ${b}, 1)`; // body background (faint shadow)
+
+        // Apply the dynamic box-shadow with exact offsets and structure
+        const embossedBox = document.querySelector('.embossedbox');
+        embossedBox.style.boxShadow = `
+            0px 0px 10px 4px ${shadow1}, 
+            4px 6px 15px 4px ${shadow2}, 
+            -5px -6px 15px 3px ${shadow3}
+        `;
+        embossedBox.style.webkitBoxShadow = embossedBox.style.boxShadow;
+        embossedBox.style.mozBoxShadow = embossedBox.style.boxShadow;
+    }
+
+    // Call the function to adjust the embossed box on page load
+    window.addEventListener('load', adjustEmbossedBox);
+
+    // Adjust the embossed box if the window is resized
+    window.addEventListener('resize', adjustEmbossedBox);
+</script>
+
+</body>
+</html>
