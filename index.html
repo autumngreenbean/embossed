@@ -1,4 +1,5 @@
 <head>
+  <!-- mouse sparkle -->
     <script type="text/javascript">
         // <![CDATA[
         var colour="white"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
@@ -201,8 +202,6 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
-    
-    
     .ballet{
       font-family: "Ballet", serif;
       font-optical-sizing: auto;
@@ -212,15 +211,20 @@
 
     * {
         font-family: ballet;
-        font-size: 70px;
         overflow-y:hidden;
         }
 body {
     background-color:rgba(228,228,228,1);
+    background-color: white;
     }
 
-    
     .embossedbox {
+
+      top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+        position: fixed;
         user-select: none;
         background-color:rgba(228,228,228,1);
         align-items: center;
@@ -228,15 +232,17 @@ body {
         color: transparent;
         text-shadow: 1px 1px 3px white;
         display: flex;
-        width: 200px;
-        height: 50px;
-
-        border-radius: 15px;
+        width: 280px;
+        height: 75px;
+        font-size: 100px;
+        border-radius: 100px;
         -webkit-box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
         -moz-box-shadow: 0px 0px 10px 3px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
-        box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
-        transition: all 0.2s ease-in-out;
-        margin: 25px;
+        box-shadow: 
+        0px 0px 10px 4px rgba(245, 245, 245, 1), 
+    4px 6px 15px 4px rgba(148, 148, 148, 1), 
+    -5px -6px 15px 3px rgba(228, 228, 228, 1), 
+    0px 0px 50px 5px rgba(228, 228, 228, 1); /* Background base gradient effect */        transition: all 0.2s ease-in-out;
         
     }
 
@@ -251,9 +257,10 @@ body {
         -2px -2px 4px rgb(174, 174, 174); 
         cursor: pointer;
         display: flex;
-        width: 200px;
-        height: 50px;
-        border-radius: 15px;
+        width: 280px;
+        height: 75px;
+        /* font-size: 100px; */
+        border-radius: 100px;
         transition: all 0.2s ease-in-out;
         line-height:20px;
 }
@@ -265,65 +272,130 @@ body {
     justify-content: center;
     color: transparent;
         display: flex;
-    width: 200px;
-    height: 50px;
+        width: 280px;
+        height: 75px;
+        /* font-size: 100px; */
 
-    border-radius: 15px;
-    
+    border-radius: 100px;
     transition: all 0.2s ease-in-out;
+-webkit-box-shadow: 0px 0px 10px 4px rgba(228,228,228,1), 4px -6px 15px 4px rgba(158,158,158,1), -5px 6px 15px 3px rgba(245,245,245,1);
+-moz-box-shadow: 0px 0px 10px 3px rgba(228,228,228,1), 4px -6px 15px 4px rgba(158,158,158,1), -5px 6px 15px 3px rgba(245,245,245,1);
+box-shadow: 0px 0px 10px 4px rgba(228,228,228,1), 4px -6px 15px 4px rgba(158,158,158,1), -5px 6px 15px 3px rgba(245,245,245,1);}
 
-    -webkit-box-shadow: 0px 0px 10px 4px rgba(228,228,228,1),-4px -6px 15px 4px rgba(158,158,158,1),5px 6px 15px 3px rgba(245,245,245,1);
-    -moz-box-shadow: 0px 0px 10px 3px rgba(228,228,228,1),-4px -6px 15px 4px rgba(158,158,158,1),5px 6px 15px 3px rgba(245,245,245,1);
-    box-shadow: 0px 0px 10px 4px rgba(228,228,228,1),-4px -6px 15px 4px rgba(158,158,158,1),5px 6px 15px 3px rgba(245,245,245,1);
-}
-/* make adaptive emboss effect */
-#chat-field-header {
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    top:0;
+.welcome {
+  -webkit-text-stroke: 1px white; /* Outline stroke */
+  font-size: 680px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    user-select: none;
+    background-color: rgba(228, 228, 228, 1);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    color: transparent;
+    text-shadow: 
+        3px 3px 4px rgba(158, 158, 158, 0.6),  /* Outer dark shadow for depth */
+        -3px -3px 4px rgba(255, 255, 255, 0.8),/* Outer light highlight */
+        1px 1px 5px rgba(255, 255, 255, 0.6), /* Inner highlight to simulate depth */
+        -1px -1px 5px rgba(100, 100, 100, 0.5); /* Inner shadow for "engraved" effect */
 }
 
-.container {
-    position:absolute;
-    box-sizing: border-box;
-    display: flex;
-    right:50%;
-    top:50%;
-    /* background-color: blue; */
-    height: 100vh;
-}
     
+.embossedball {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  
+  background-color: rgba(228, 228, 228, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  
+  -webkit-box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  box-shadow: 0px 0px 10px 4px rgba(245, 245, 245, 1), 4px 6px 15px 4px rgba(148, 148, 148, 1), -5px -6px 15px 3px rgba(228, 228, 228, 1);
+  transition: all 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease-out;
+}
+
 
 </style>
 
 <body>
-    <div id = ""> 
-
-    </div>
-    <div class="container">
-        <div id="chat-field-header">
-        </div>
-        <div class="embossedbox">enter</div>
-
-        <div class="embossedbox">exit</div>
-
-
-    </div>
+  <div class = "welcome">Hello</div>
+  <div class="embossedbox" onclick="welcome">enter</div>
+  <div class="embossedball"></div>
 
 
 </body>
 
 <script>
-// Select all elements with the class 'embossedbox'
 const embossedBoxes = document.querySelectorAll('.embossedbox');
-
-// Loop through each element and add an event listener
 embossedBoxes.forEach(function(embossedBox) {
   embossedBox.addEventListener('click', function() {
-    // Toggle the 'clicked' class on the clicked element
-    embossedBox.classList.toggle('clicked');
+    embossedBox.classList.add('clicked');
+    welcome();
+    setTimeout(() => {
+      embossedBox.classList.remove('clicked');
+    }, 700); 
   });
 });
 
+function welcome() {
+    const container = document.body;
+        const numBalls = 10;
+    const amplitude = 1000; // Height of sine wave
+    const frequency = 0.05; // Wave frequency
+    const spacing = 10; // Distance between balls
+    const speed = .1; // Speed of movement
+    const duration = 20; // Time before disappearing
+    
+    for (let i = 0; i < numBalls; i++) {
+        let ball = document.createElement('div');
+        ball.classList.add('embossedball');
+        container.appendChild(ball);
+
+        let x = -50 - (i * spacing); 
+        let y = window.innerHeight / 2; 
+
+        (function animateBall(ball, delay) {
+            let startTime = Date.now();
+            
+            function move() {
+                let timeElapsed = (Date.now() - startTime) / 1000;
+                let newX = x + timeElapsed * speed * 150;
+                let newY = y + Math.sin((newX + delay) * frequency) * amplitude;
+                
+                ball.style.transform = `translate(${newX}px, ${newY}px)`;
+
+                if (newX < window.innerWidth) {
+                    requestAnimationFrame(move);
+                } else {
+                    ball.style.opacity = '0';
+                    setTimeout(() => ball.remove(), 1000);
+                }
+            }
+
+            setTimeout(() => requestAnimationFrame(move), delay * 100);
+        })(ball, i);
+    }
+}
+
+    // const container = document.body;
+    // const numBalls = 10;
+    // const amplitude = 1000; // Height of sine wave
+    // const frequency = 0.05; // Wave frequency
+    // const spacing = 10; // Distance between balls
+    // const speed = .1; // Speed of movement
+    // const duration = 20; // Time before disappearing
+    
 
 </script>
